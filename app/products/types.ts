@@ -3,6 +3,8 @@ export interface iProduct {
 	description: string
 	id: number
 	image_url: string
+	category_id: number
+	category_name: string
 }
 
 export interface iProducts {
