@@ -31,8 +31,8 @@ const Products = () => {
 					{/* Product Cards */}
 					<ul className='grid grid-cols-3 gap-5'>
 						{filteredProducts?.length ? filteredProducts.map(product => (
-							<li key={product.id}
-							    className='flex flex-col w-48 animate-fadein cursor-pointer'
+							<li key={`${product.id}-${Date.now()}`}
+							    className='flex flex-col w-48 cursor-pointer animate-fadein'
 									onClick={() => location.href=`/products/${product.id}`}
 							>
 								{/* eslint-disable-next-line @next/next/no-img-element */}
