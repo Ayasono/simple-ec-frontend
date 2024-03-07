@@ -25,7 +25,7 @@ const Products = () => {
 
 	return (
 		<>
-			<main className='w-240 mx-auto pt-20'>
+			<main className='w-240 mx-auto'>
 				<h1 className='text-3xl font-bold mb-5'>Products</h1>
 				<div className='flex row justify-between'>
 					{/* Product Cards */}
@@ -33,15 +33,33 @@ const Products = () => {
 						{filteredProducts?.length ? filteredProducts.map(product => (
 							<li key={`${product.id}-${Date.now()}`}
 							    className='flex flex-col w-48 cursor-pointer animate-fadein'
-									onClick={() => location.href=`/products/${product.id}`}
+							    onClick={() => location.href = `/products/${product.id}`}
 							>
 								{/* eslint-disable-next-line @next/next/no-img-element */}
 								<img src={product.image_url}
 								     alt={product.name}
 								     className='w-48 h-48'/>
 								<div className='font-bold my-2 text-sm'>{product.name}</div>
-								<div className='text-xs'
+								<div className='text-xs mb-2 hover:text-highlight'
 								     dangerouslySetInnerHTML={{__html: product.description}}></div>
+								{
+									product.single_price ?
+										<div className='text-xs flex flex-nowrap'>
+											<div className='mr-5'>単品</div>
+											<div className='text-xs'>¥{product.single_price}</div>
+											<div className='ml-1 text-[8px] text-highlight'>(税込)</div>
+										</div>
+										: null
+								}
+								{
+									product.subs_price ?
+										<div className='text-xs flex flex-nowrap'>
+											<div className='mr-5'>定期</div>
+											<div className='text-xs'>¥{product.subs_price}</div>
+											<div className='ml-1 text-[8px] text-highlight'>(税込)</div>
+										</div>
+										: null
+								}
 							</li>
 						)) : <h2 className='text-red-600'>No data available</h2>}
 					</ul>
