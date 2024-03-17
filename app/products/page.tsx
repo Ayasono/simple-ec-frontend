@@ -3,7 +3,7 @@
 import React, {useEffect, useState} from 'react';
 import {iProducts} from "./types";
 import {getProducts} from "@/app/api/getProducts";
-import {Categories} from "@/app/components/Categories";
+import {Categories} from "@/app/_components/Categories";
 
 const Products = () => {
 	const [products, setProducts] = useState<iProducts | undefined>();

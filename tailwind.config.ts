@@ -8,6 +8,12 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			height: {
+				'screen-80': 'calc(100vh - 80px)',
+			},
+			colors: {
+				"highlight": "#82655D",
+			},
 			width: {
 				240: "60rem",
 			},
@@ -19,6 +25,7 @@ const config: Config = {
 			},
 			backgroundColor: {
 				'category': '#CEBFB4',
+				'main': '#f7f6f4',
 			},
 			keyframes: {
 				fadein: {
